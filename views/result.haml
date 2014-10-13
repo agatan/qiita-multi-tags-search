@@ -1,0 +1,13 @@
+%table
+  %tr
+    %th 関連度
+    %th タイトル
+    %th タグ
+    %th 本文
+  - for relevance, articles in @relevances
+    - for article in articles
+      %tr
+        %th= "#{relevance} / #{@tags.count}"
+        %th= article.title
+        %th= article.tags.join(', ')
+        %th= article.body[0, 50]
